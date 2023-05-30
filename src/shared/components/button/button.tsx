@@ -1,5 +1,4 @@
 import { TouchableOpacityProps } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { theme } from '../../themes/theme';
 import Text from '../text/Text';
