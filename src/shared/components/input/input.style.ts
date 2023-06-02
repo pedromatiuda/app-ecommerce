@@ -1,10 +1,20 @@
 import styled from 'styled-components/native';
 
-export const ContainerInput = styled.TextInput`
+import { theme } from '../../themes/theme';
+
+interface ContainerInputProps {
+  isError?: boolean;
+}
+
+export const ContainerInput = styled.TextInput<ContainerInputProps>`
   height: 48px;
   width: 100%;
   padding: 16px;
-  background-color: white;
-  color: #888;
+  background-color: ${theme.colors.neutralTheme.white};
+  color: ${theme.colors.neutralTheme.black};
   border-radius: 4px;
+
+  border-width: 1px;
+  border-color: ${(props) =>
+    props.isError ? theme.colors.orangeTheme.orange80 : theme.colors.grayTheme.gray80};
 `;
