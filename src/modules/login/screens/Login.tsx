@@ -14,7 +14,8 @@ const Login = () => {
     <View>
       <ContainerLogin>
         <Icon name="music" size={44} />
-        <Input placeholder="Digite seu email" title="Email:" />
+        <Input margin="0px 0px 8px 0px" placeholder="Digite seu email" title="Email:" />
+        <Input secureTextEntry placeholder="Digite sua senha" title="Senha:" />
         <Button
           type={theme.buttons.buttonsTheme.primary}
           title="ENTRAR"
