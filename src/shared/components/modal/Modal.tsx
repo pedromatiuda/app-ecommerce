@@ -1,4 +1,4 @@
-import { Alert, Modal as ModalReact, ModalProps as ModalPropsReact, View } from 'react-native';
+import { Alert, Modal as ModalReact, ModalProps as ModalPropsReact } from 'react-native';
 
 import { theme } from '../../themes/theme';
 import Button from '../button/Button';
