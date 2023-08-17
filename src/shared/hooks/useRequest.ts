@@ -4,12 +4,13 @@ import { useState } from 'react';
 
 import { useGlobalReducer } from '../../store/reducers/globalReducer/useGlobalReducer';
 import { useUserReducer } from '../../store/reducers/userReducer/useUserReducer';
+import { MenuUrl } from '../enums/MenuUrl.enum';
 import { connectionAPICPost } from '../functions/connection/connectionAPI';
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/returnLogin';
 
 export const useRequest = () => {
-  const { navigate } = useNavigation<BottomTabNavigationProp<ParamListBase>>();
+  const { reset } = useNavigation<BottomTabNavigationProp<ParamListBase>>();
   const { setUser } = useUserReducer();
   const { setModal } = useGlobalReducer();
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,7 +21,10 @@ export const useRequest = () => {
     await connectionAPICPost<ReturnLogin>('http://192.168.15.12:3000/auth', body)
       .then((result) => {
         setUser(result.user);
-        navigate('Home');
+        reset({
+          index: 0,
+          routes: [{ name: MenuUrl.HOME }],
+        });
       })
       .catch(() => {
         setModal({
