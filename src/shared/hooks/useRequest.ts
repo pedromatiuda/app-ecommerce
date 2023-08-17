@@ -1,3 +1,5 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 import { useGlobalReducer } from '../../store/reducers/globalReducer/useGlobalReducer';
@@ -7,6 +9,7 @@ import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/returnLogin';
 
 export const useRequest = () => {
+  const { navigate } = useNavigation<BottomTabNavigationProp<ParamListBase>>();
   const { setUser } = useUserReducer();
   const { setModal } = useGlobalReducer();
   const [loading, setLoading] = useState<boolean>(false);
@@ -17,6 +20,7 @@ export const useRequest = () => {
     await connectionAPICPost<ReturnLogin>('http://192.168.15.12:3000/auth', body)
       .then((result) => {
         setUser(result.user);
+        navigate('Home');
       })
       .catch(() => {
         setModal({
