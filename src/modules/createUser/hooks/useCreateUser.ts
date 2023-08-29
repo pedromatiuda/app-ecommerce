@@ -1,14 +1,14 @@
 import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, Switch, TextInputChangeEventData } from 'react-native';
+import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
 import { MethodEnum } from '../../../enums/method.enum';
 import { URL_USER } from '../../../shared/constants/urls';
 import { MenuUrl } from '../../../shared/enums/MenuUrl.enum';
 import { removeSpecialCharacters } from '../../../shared/functions/characters';
-import { insertMaskInCpf, validateCpf } from '../../../shared/functions/cpf';
+import { validateCpf } from '../../../shared/functions/cpf';
 import { validateEmail } from '../../../shared/functions/email';
-import { insertMaskInPhone, validatePhone } from '../../../shared/functions/phone';
+import { validatePhone } from '../../../shared/functions/phone';
 import { useRequest } from '../../../shared/hooks/useRequest';
 import { CreateUserType } from '../../../shared/types/createUserType';
 
